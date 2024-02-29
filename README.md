@@ -62,28 +62,4 @@ Link to overleaf (to edit online):
 
 ## Acknowkledge
 
-Operator Assist SBO.
-
-
-## LaTeX user template and guide
-
-To compile user guide:
-
-1. `pdflatex sample-1col`
-2. `bibtex sample-1col`
-3. `pdflatex sample-1col`
-4. `pdflatex sample-1col`
-
-and
-
-1. `pdflatex sample-2col`
-2. `bibtex sample-2col`
-3. `pdflatex sample-2col`
-4. `pdflatex sample-2col`
-
-or
-
-use the makefile:
-
-`make`
-
+This research was funded by Flanders Make organization under the project OperatorAssist_SBO, project number 2021-0133. Flanders Make is the Flemish strategic research center for the manufacturing industry.
