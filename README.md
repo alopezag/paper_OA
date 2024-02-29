@@ -19,26 +19,28 @@ This project aims to harness this knowledge potential by developing a digital as
 - Author Registration	1st May 2024
 - Conference:	3rd-7th June 2024
 
-## Writing plan
+## Planning 
 
 ```mermaid
 gantt
 dateFormat  YYYY-MM-DD
 axisFormat %d/%m
-title Conference paper
+title Conference
 
-section Writing
-  First draft   :active,  w1, 2024-03-01,20d
-  Revision 1  : w2, after w1, 3d
-  Final revision :crit,  w3, after w3, 3d
+section Drafting
+  Writing   :active,  w1, 2024-03-01,24d
+  First draft :milestone, 2024-03-25
+  Revision 1 : w2, after w1, 3d
+  Revision 2 :crit, w3, after w2, 3d
 
 section Submission
-   Intension to Submit.     :crit, 2024-04-01
-   Submission               :crit, 2024-04-18
+   Intention to Submit     :milestone, 2024-04-01
+   Final adaptation               :crit, s2, after w3,  7d
+   Submission     :milestone, 2024-04-08
 
 ```
 
-More info in:
+More info in: [#2](https://github.com/alopezag/paper_OA/issues/2)
 
 ## Latex structure
 
