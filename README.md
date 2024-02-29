@@ -43,7 +43,7 @@ More info in:
 
 ## Latex structure
 
-- Main file: [Welding.tex](paper_OA.tex)
+- Main file: [paper_OA.tex](paper_OA.tex)
   + [01_Introduction.tex](01_Introduction.tex)
   + [02_Literature.tex](02_Literature.tex)
   + [03_Methodology.tex](03_Methodology.tex)
