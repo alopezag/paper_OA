@@ -1,0 +1,128 @@
+%% The first command in your LaTeX source must be the \documentclass command.
+%%
+%% Options:
+%% twocolumn : Two column layout.
+%% hf: enable header and footer.
+\documentclass[
+% twocolumn,
+% hf,
+]{ceurart}
+
+%%
+%% One can fix some overfulls
+\sloppy
+
+%%
+%% Minted listings support 
+%% Need pygment <http://pygments.org/> <http://pypi.python.org/pypi/Pygments>
+\usepackage{listings}
+%% auto break lines
+\lstset{breaklines=true}
+
+%%
+%% end of the preamble, start of the body of the document source.
+\begin{document}
+
+%%
+%% Rights management information.
+%% CC-BY is default license.
+\copyrightyear{2022}
+\copyrightclause{Copyright for this paper by its authors.
+  Use permitted under Creative Commons License Attribution 4.0
+  International (CC BY 4.0).}
+
+%%
+%% This command is for the conference information
+\conference{Woodstock'22: Symposium on the irreproducible science,
+  June 07--11, 2022, Woodstock, NY}
+
+%%
+%% The "title" command
+\title{Operator Assist: A digital assistant for assembly operators}
+
+\tnotemark[1]
+\tnotetext[1]{You can use this document as the template for preparing your
+  publication. We recommend using the latest version of the ceurart style.}
+
+%%
+%% The "author" command and its associated commands are used to define
+%% the authors and their affiliations.
+\author[1,2]{Dmitry S. Kulyabov}[%
+orcid=0000-0002-0877-7063,
+email=kulyabov-ds@rudn.ru,
+url=https://yamadharma.github.io/,
+]
+\cormark[1]
+\fnmark[1]
+\address[1]{Peoples' Friendship University of Russia (RUDN University),
+  6 Miklukho-Maklaya St, Moscow, 117198, Russian Federation}
+\address[2]{Joint Institute for Nuclear Research,
+  6 Joliot-Curie, Dubna, Moscow region, 141980, Russian Federation}
+
+\author[3]{Ilaria Tiddi}[%
+orcid=0000-0001-7116-9338,
+email=i.tiddi@vu.nl,
+url=https://kmitd.github.io/ilaria/,
+]
+\fnmark[1]
+\address[3]{Vrije Universiteit Amsterdam, De Boelelaan 1105, 1081 HV Amsterdam, The Netherlands}
+
+\author[4]{Manfred Jeusfeld}[%
+orcid=0000-0002-9421-8566,
+email=Manfred.Jeusfeld@acm.org,
+url=http://conceptbase.sourceforge.net/mjf/,
+]
+\fnmark[1]
+\address[4]{University of Skövde, Högskolevägen 1, 541 28 Skövde, Sweden}
+
+%% Footnotes
+\cortext[1]{Corresponding author.}
+\fntext[1]{These authors contributed equally.}
+
+%%
+%% The abstract is a short summary of the work to be presented in the
+%% article.
+\begin{abstract}
+Over the last years, manufacturing companies have experienced an ever-increasing demand for more complex products with an increasing amount of product variants. As a result, the amount of tasks assembly operators need to master is growing accordingly. Introduction of Industry 4.0 concepts and technologies also require operators to acquire a whole new set of skills (e.g., robot programming, data analysis) linked to their changed role and responsibilities within the production environment. The impact of this change cannot be underestimated and is therefore one of the main focus points for innovation in the recently defined Industry 5.0 concept. Currently, assembly operator support services are often limited to providing procedural (digital) work instructions. In case of issues, operators have to rely on their own knowledge and experience or require help from external experts. Digitization offers an enormous potential to provide better insights and support to the operator by gathering information and knowledge that is available in various IT information systems. However today, this potential too often remains untapped.
+In this project, we will leverage this knowledge potential to develop a digital assistant (DA) which interacts with the operator and serves as a single-point-of-contact between the operator and various information sources. Based on accurate recognition of the current state of the assembly, the DA will proactively suggest what the operator should do next. When issues arise, the operator will be able to seamlessly interact (“Why doesn’t this part fit?”) with the DA, which relies on its understanding of the situation to provide the operator with the required answers. 
+Besides the clear performance gains (quality, efficiency) such a DA also provides reassurance to the operator by knowing they will receive the required support whenever they need it. New operators will be able to work independently more quickly. As an added benefit, the decreased need for external support will increase the efficiency of the supportive staff.
+\end{abstract}
+
+%%
+%% Keywords. The author(s) should pick words that accurately describe
+%% the work being presented. Separate the keywords with commas.
+\begin{keywords}
+  Operator Assist \sep
+  Digital work instruction (DWI) \sep
+  Question and answers \sep
+  Vision system \sep
+  Knowledge graph
+\end{keywords}
+
+%%
+%% This command processes the author and affiliation and title
+%% information and builds the first part of the formatted document.
+\maketitle
+
+\input{01_Introduction}
+
+%%
+%% The acknowledgments section is defined using the "acknowledgments" environment
+%% (and NOT an unnumbered section). This ensures the proper
+%% identification of the section in the article metadata, and the
+%% consistent spelling of the heading.
+\begin{acknowledgments}
+  Thanks to the developers of ACM consolidated LaTeX styles
+  \url{https://github.com/borisveytsman/acmart} and to the developers
+  of Elsevier updated \LaTeX{} templates
+  \url{https://www.ctan.org/tex-archive/macros/latex/contrib/els-cas-templates}.  
+\end{acknowledgments}
+
+%%
+%% Define the bibliography file to be used
+\bibliography{sample-ceur}
+
+\end{document}
+
+%%
+%% End of file
