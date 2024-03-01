@@ -4,39 +4,10 @@
 
 \subsection{Digital Assistant}\label{sec:DA}
 
-Speech, which is the prevalent way to interact with a DA, is characterized by high efficiency, naturalness, low
-cognitive load and hands-free capabilities, but is hard when it is noisy or multiple persons are working in close
-proximity [23]. Speech, however, can be complemented by graphical UIs to query a DA, for instance through a
-chatbot and touch/gestural interaction [7], [24], [25]. Leveraging multiple modalities and devices in combination with
-a conversational UI allows seamless interaction [26], as well as taking advantage of fitting technologies in different
-situations [27]. Therefore, we will support multiple devices and modalities to interact with the DA, using web-based
-multi-device formats. Interaction between the operator and DA will always happen through a UI on a device, which
-needs to be created for and tailored to that specific device for an optimal experience. Automatic UI creation and
-adaptation mechanisms, however, are error prone and complex, and lack control, transparency and predictability
-[28]. On the work floor, operators require stable interfaces that are predictable. Therefore, we focus on an adaptable
-UI [29] and design templates that take into account best practices [30]to ensure a consistent and usable experience.
-In contrast to existing work, we will use a holistic approach that considers (i) context, devices, modalities, and UI
-together, (ii) from both a technical and usability perspective, (iii) in a manufacturing setting: we will provide a toolbox
-for multimodal UIs that can be rendered on multiple devices and support seamless two-way interaction, which can
-be ‘optimized’ for the current manufacturing environment, task and operator (see figure 1 for a practical example).
-We will build on our experiences with, among others, asking and answering questions about computing applications
-[31].
-A major benefit of the DA is the on-demand, reactive nature of support, as nonstop support can negatively influence
-task completion time and perceived cognitive load [32]. The downside is that info might be overlooked by the
-operator. Therefore, the DA will offer proactive assistance when needed (e.g., in case of errors in task execution)
-[33], [34]. We will investigate decision strategies that use implicit inputs such as cognitive load [35] and state
-estimation. Proactivity, however, will always be imperfect, akin to inevitable flaws in activity and context detection:
-we will implement a two-way feedback loop, so the operator can complement or correct info (e.g., in case of low
-confidence level of an activity recognition or additional information offered because of a lack of experience, the
-operator is made aware and can intervene). To process both explicit and implicit inputs, we will build on our
-experiences with prototyping multimodal interactions [36], as it is not our goal to advance the state of the art with
-regard to low-level input processing. We will also implement strategies to attune the output to the context of use
-(e.g., the operator's experience, the task's criticality, the probability of errors). To this end, we will render information
-with various levels of detail [37], [38], adapted to a manufacturing setting and augmented with a mixed-initiative
-approach to keep the operator in control. An inexperienced operator, for instance, will be offered more detailed
-information (e.g., instructional video or diagram instead of text) and more frequent proactive suggestions, but the
-operator can always intervene to avoid unwanted or unneeded behavior.
+Speech, which is the prevalent way to interact with a DA, is characterized by high efficiency, naturalness, low cognitive load and hands-free capabilities. However, it is hard when it is noisy or multiple persons are working in close proximity \cite{hou2018VisualFeedbackDesign}. Speech, however, can be complemented by graphical UIs to query a DA, for instance, through a chatbot and touch/gestural interaction \cite{belkadi2020IntelligentAssistantSystem,klopfenstein2017RiseBotsSurvey,heller2019TaskHerderWearableMinimal}. Leveraging multiple modalities and devices in combination with a conversational UI allows seamless interaction \cite{white2019MultideviceDigitalAssistance}, as well as taking advantage of fitting technologies in different situations \cite{heinz2018MultideviceAssistiveSystem}. Therefore, we will support multiple devices and modalities to interact with the DA, using web-based multi-device formats. Interaction between the operator and DA will always happen through a UI on a device, which needs to be created for and tailored to that specific device for an optimal experience. Automatic UI creation and adaptation mechanisms, however, are error prone and complex, and lack control, transparency and predictability \cite{lavie2010BenefitsCostsAdaptive}. On the work floor, operators require stable interfaces that are predictable. Therefore, we focus on an adaptable UI \cite{bunt2007SupportingInterfaceCustomization} and design templates that take into account best practices \cite{ratzka2013UserInterfacePatterns} to ensure a consistent and usable experience. In contrast to existing work, we will use a holistic approach that considers (i) context, devices, modalities, and UI together, (ii) from both a technical and usability perspective, (iii) in a manufacturing setting: we will provide a toolbox for multimodal UIs that can be rendered on multiple devices and support seamless two-way interaction, which can be optimized for the current manufacturing environment, task and operator (see figure 1 for a practical example). We will build on our experiences with, among others, asking and answering questions about computing applications \cite{vermeulen2010PervasiveCrystalAskingAnswering}.
+
 
 \subsection{Reactive and proactive support} \label{sec:ReactiveProactive}
 
+A major benefit of the DA is the on-demand, reactive nature of support, as nonstop support can negatively influence task completion time and perceived cognitive load \cite{funk2017WorkingAugmentedReality}. The downside is that the information might be overlooked by the operator. Therefore, the DA will offer proactive assistance when needed (e.g., in case of errors in task execution) \cite{cuenca2016HasseltRapidPrototyping}. We will investigate decision strategies that use implicit inputs such as cognitive load \cite{lindlbauer2019ContextAwareOnlineAdaptation} and state estimation. Proactivity, however, will always be imperfect, akin to inevitable flaws in activity and context detection: we will implement a two-way feedback loop so the operator can complement or correct info (e.g., in case of low confidence level of an activity recognition or additional information offered because of a lack of experience, the operator is made aware and can intervene). To process both explicit and implicit inputs, we will build on our experiences with prototyping multimodal interactions \cite{eshet2016ContextUseFinal}, as it is not our goal to advance the state of the art with regard to low-level input processing. We will also implement strategies to attune the output to the context of use (e.g., the operator's experience, the task's criticality, and the probability of errors). To this end, we will render information with various levels of detail [37], [38], adapted to a manufacturing setting and augmented with a mixed-initiative approach to keep the operator in control. An inexperienced operator, for instance, will be offered more detailed information (e.g., instructional video or diagram instead of text) and more frequent proactive suggestions, but the operator can always intervene to avoid unwanted or unneeded behavior.
 
