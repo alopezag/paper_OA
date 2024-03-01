@@ -52,7 +52,7 @@ More info in: [#2](https://github.com/alopezag/paper_OA/issues/2)
   + [05_Conclusions.tex](05_Conclusions.tex)
 
 - Reference file: [references.bib](references.bib)
-  + Papers: [/ref](/ref)
+  + Papers(pdf): [/refs](/refs)
 
 Link to overleaf (to edit online): 
 
