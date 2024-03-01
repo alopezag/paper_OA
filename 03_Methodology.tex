@@ -16,6 +16,27 @@ To process both explicit and implicit inputs, we will build on our experiences w
 
 We will also implement strategies to attune the output to the context of use (e.g., the operator's experience, the task's criticality, and the probability of errors). To this end, we will render information with various levels of detail [37], [38], adapted to a manufacturing setting and augmented with a mixed-initiative approach to keep the operator in control. An inexperienced operator, for instance, will be offered more detailed information (e.g., instructional video or diagram instead of text) and more frequent proactive suggestions, but the operator can always intervene to avoid unwanted or unneeded behavior.
 
+\subsection{knowledge representation}
+
+The support offered by the DA is based on rich and in-depth knowledge of the assembly process, obtained by connecting various information sources (e.g., MES, application services). The concept of Virtual Knowledge Graphs (VKG) \cite{xiao2019VirtualKnowledgeGraphs} will be used to represent and store available knowledge in a dynamic Assembly Knowledge Store (AKS). The elements that define a VKG are (i) an ontology schema that provides semantics and structures the data for a specific domain, (ii) one or more information sources, and (iii) a mapping that effectuates the migration of data from these sources to an ontology. 
+
+Three domain ontologies will be created and brought together throughout the project to realize the AKS, as depicted in Table \ref{tab:ontolgoies}. During the development of the domain ontologies, semantic rule axioms \cite{sormaz2019SIMPMUpperlevelOntology} for each domain will be authored using Semantic Web Rule Language (SWRL) to derive knowledge from the data and identify potential mismatches automatically. These rule axioms will facilitate the maintenance and functioning of the AKS.
 
 
+\begin{table}
+  \caption{Domain ontologies}
+  \label{tab:ontolgoies}
+  \begin{tabular}{cp{7cm}}
+    \toprule
+    Domain & Description\\
+    \midrule
+    Assembly Domain Ontology &  A combination between the ISA-95 based assembly information model \cite{claeys2018OntologicalModelManaging} and a skill-based resource library.\\ 
+    Questions \& Answers Domain & Describe possible question-answer pairs and map them to entities from the assembly information domain. \\
+    Conversational History Domain & Capture the real assembly runs when operators are assisted by the DA.\\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
+%The assembly information domain where the ISA-95 based assembly information model (ICON OperatorKnowledge) [12] and skill-based resource library (Flexas-VR) will be unified in the AKS to structure and represent assembly context information (maximally exploiting existing standards, e.g., RAMI4.0, Open Assembly Model). The VKG approach enables the dynamic migration of additional data from different information systems based on the use case requirements.
+%The Questions and Answers (Q\&A) domain will describe possible question-answer pairs and map them to entities from the assembly information domain (e.g., link a question to a specific piece of equipment). The observation of industrial cases and interviews with all stakeholders, mentioned before, will result in an overview of common questions or requests in an assembly/maintenance environment, which will be used to populate the Q\&A domain.
+%The conversational history data will be initiated by real assembly runs in the lab, where operators are assisted by the DA.
