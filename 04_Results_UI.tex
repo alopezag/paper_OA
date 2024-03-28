@@ -3,12 +3,12 @@ The key goal of the UI module is to offer a user friendly, efficient and uniform
 
 The focal element in the architectural framework behind our UI toolbox (see Figure~\ref{fig:ui-architecture}) is the back-end C\# WPF application that serves as an encapsulating entity for a SignalR hub. It functions as the central authority and communication hub, governing all communication processes initiated by individual clients. There are no limitations for the type of devices that can act as a client, apart from being able to communicate through SignalR~\cite{SignalR01,Sharma_2023}. We implemented a toolbox of reusable components on the Microsoft MAUI platform~\cite{Maui01,Maui02}, with support for an extensive set of devices (e.g., desktop systems, tablets, smartphones, smartwatches), each with their own modalities, capabilities and strengths. The modular basis of the toolbox allows easy integration of other platforms and devices, including devices with limited modalities (e.g., a microcontroller directing an industrial signal tower).
 
-Communication to the other modules in the project can be done through any communication channel (e.g. MQTT, REST). The \emph{bridge to the operator service bus} handles any translations from external data to internal representations (if deemed useful) before triggering actions. Furthermore, a \emph{Wizard of Oz} allows for a supervising user to freely change the internal state, context and content of the system. The primary use case for this wizard is to be able to conduct functional and user tests with features that are not yet fully implemented, but that are emulated or manipulated by the wizard.
+Communication to the other modules in the project can be done through any communication channel (e.g. MQTT, REST). The \emph{bridge to the operator service bus} handles any translations from external data to internal representations (if deemed useful) before triggering actions (e.g., remove data that is only relevant for other components or add UI-specific data). Furthermore, a \emph{Wizard of Oz} allows for a supervising user to freely change the internal state, context and content of the system. The primary use case for this wizard is to be able to conduct functional and user tests with features that are not yet fully implemented, but that are emulated or manipulated by the wizard.
 
 \begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{figs/UI-architecture.png}
-    \caption{Architectural framework behind our UI toolbox.}
+    \caption{Architectural framework: the MAUI component offers reusable components for various devices, the back end governs all communication initiated by clients, the bridge to the operator service bus handles external data provided by other modules, and the Wizard of Oz eases testing.}
     \label{fig:ui-architecture}
 \end{figure}
 
@@ -16,11 +16,23 @@ Due to the heterogeneity of working environments, assembly tasks and operators, 
 
 Our toolbox allows for an extensive configuration of devices and modalities (e.g., which modalities can or should be enabled on a device, which output is rendered on a particular device). Furthermore, should a device or modality suddenly become unavailable, we facilitate graceful degradation and quick reconfiguration. We implemented this flexibility by creating an \emph{Interaction Event Orchestrator (IEO)} that takes the known contextual parameters into consideration to determine the best device to respond to a given input interaction. The IEO requires a device to register its modalities and capabilities, ensuring it has the necessary information available.
 
-Based on the data provided by the clients, all possible interactions (and their corresponding modalities) are mapped at a certain moment in time and provided to the operator. The available interactions will vary, depending on the state and content of the application (e.g., a thumbs up gesture will signal a positive feedback to provided assistance, but might not have any effect when the operator is reading a manual). Additionally, after an interaction is handled, the IEO also provides information about what just happened (and by which device), so the operator can learn about the system and diagnose any unexpected results. While not currently supported in our implementation, this information could in the future be used to adapt and fine-tune the system's response for future events.
+To offer a certain degree of intelligibility to the operator, the data provided by the clients (e.g., TODO) is used to map all possible interactions (and their corresponding modalities) at a certain moment in time (e.g., TODO). The available interactions will vary, depending on the state and content of the application (e.g., a `thumbs up' gesture will signal a positive feedback when the DA provided assistance, but might not have any effect when the operator is reading a manual). Additionally, after an interaction is handled, the IEO provides information about what just happened (and by which device), so the operator can learn about the inner workings of the DA and diagnose unexpected results. This information could be used to adapt and fine-tune the DA's response to future events.
 
-In addition to the reactive nature of the system, the platform also supports providing proactive assistance, which entails different notification types and urgency levels. 
-The operator could, for example, receive an informative message that appears in a queue to be read at a time of the operator's discretion; the system will not try to get the attention of the operator in such an event. 
-Alternatively a critical warning might need to be delivered to the operator because a potentially dangerous action was detected. In the latter case, an appropriate set of the available devices and modalities should be used to get the attention of the operator as soon as possible.
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{ui-possible-interactions.png}
+    \caption{Intelligibility information about possible interactions in the client. Each block represents a capability (in green) that can be triggered by any of the mentioned modalities (in purple). In the bottom right the responsible component in the client is shown (e.g., Knowledge Center, Global Actions). This list is dependent on which components are active in the client.}
+    \label{fig:enter-label}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{ui-222.png}
+    \caption{Enter Caption}
+    \label{fig:enter-label}
+\end{figure}
+
+In addition to the reactive support, the DA also supports proactive assistance, which entails different notification types and urgency levels. The operator can, for example, receive an informative message that appears in a queue to be read at a convenient time. The DA will not try to get the operator's attention in case of such an event. Alternatively, a critical warning might need to be delivered to the operator because a potentially dangerous action was detected. In that case, an appropriate set of the available devices and modalities is used to get the attention of the operator as soon as possible.
 Another category of notifications are those that are quite important but not very urgent, and are therefore not warranted to interrupt the operator in his current task. This information should rather be communicated to the operator at a more \textit{opportune time}, which can be approximated by processing information on the user’s current environment \cite{lindlbauer2019ContextAwareOnlineAdaptation}, the state estimation of the task and proxemics \cite{Marquardt_2015} \cite{Williamson_2022}. 
 To avoid cognitive overload, it might be a good idea to group the available notifications so the interruption, that could not be prevented, is at least used optimally.
 Furthermore the perceived progress of the state estimation might give a good lead to find a natural breakpoint in the execution of the task at hand.
