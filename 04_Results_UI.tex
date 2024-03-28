@@ -1,13 +1,27 @@
-\subsection{User Interface}\label{sec:UI}
+\subsection{User Interface Toolbox}\label{sec:UI}
+The key goal of the UI module is to offer a user friendly, efficient and uniform point of access to the DA, which can be optimized for the current manufacturing environment, task and operator. Therefor, we provide a toolbox for adaptable multimodal UIs that can be rendered on multiple devices and support seamless two-way interaction.
 
-\textcolor{red}{First draft. To be fine-tuned.}
 
-The most important goal of the user interface module is to be a user friendly and uniform point of access to the vast amount of information that is available in the system. For this reason we support multiple devices and modalities to interact with the DA. Currently our platform already supports an extensive set of devices (e.g. desktop systems, tablets, smartphones and smartwatches), each with their own modalities, capabilities and strengths. The modular basis of the system allows it to be easily adopted into other platforms and devices, allowing extra types of devices to be added as well, including devices with very limited modalities (e.g., a microcontroller directing an industrial signal tower).
+The focal element within the architectural framework (see Figure \ref{fig:ui-architecture}) is the backend (C\# WPF) application, serving as the encapsulating entity for a SignalR Hub. Functioning as the central authority and communication hub, this backend application governs all communication processes initiated by individual clients. 
+There are no limitations for the type of devices that can act as clients in the system, apart from it being able to communicate through the use of SignalR \cite{SignalR01}\cite{Sharma_2023}.
+We have implemented a toolbox of reusable components on the Microsoft MAUI platform \cite{} with support for an extensive set of devices (e.g., desktop systems, tablets, smartphones, smartwatches), each with their own modalities, capabilities and strengths. The modular basis of the toolbox allows easy integration of other platforms and devices, including devices with limited modalities (e.g., a microcontroller directing an industrial signal tower).
 
-Due to the heterogeneity of working environments and available devices, we focus on an adaptable UI [29] and design templates that take into account best practices [30]to ensure a consistent and usable experience. 
-\textcolor{red}{In contrast to \textbf{existing work}}, we will use a holistic approach that considers (i) context, devices, modalities, and UI together, (ii) from both a technical and usability perspective, (iii) in a manufacturing setting: we will provide a toolbox for multimodal UIs that can be rendered on multiple devices and support seamless two-way interaction, which can be ‘optimized’ for the current manufacturing environment, task and operator\iffalse\textcolor{red}{ (see figure 1 for a practical example)}\fi. As the environment can be a fluid concept, we provide the necessary flexibility (i.e., devices are available, but they don't need to be used) while trying to pursue graceful degradation when a device suddenly becomes unavailable. 
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{figs/UI-architecture.png}
+    \caption{User Interface Architecture}
+    \label{fig:ui-architecture}
+\end{figure}
+
+Due to the heterogeneity of working environments, assembly tasks and operators, we focus on a toolbox that supports adaptable UIs to ensure a consistent and usable experience, as discussed in Section~\ref{sec:DA}. As the context of use is a fluid concept, our toolbox aims for a maximum degree of flexibility: all devices and modalities can be combined and configured in an extensive manner. For instance, the operator or manufacturing company can decide on which devices will be used, depending on the given context and availability of devices. Our toolbox allows for an 
+
+
+(i.e., devices are available, but they don't need to be used) while trying to pursue graceful degradation when a device suddenly becomes unavailable. 
+
+
 The same holds true for the modalities that are supported in the system: we provide redundancy and flexibility for an operator to interact with the system, as some modalities might be impaired by contextual limitations (e.g., voice input doesn't work because there's too much ambient noise; a gesture can be used instead).
 We implemented this flexibility by creating an Interaction Event Orchestrator (IEO) that takes the known contextual parameters into consideration to determine the best device to respond to a given input interaction. The IEO requires the devices to register their modalities and capabilities, ensuring it has the necessary information available.
+
 To provide the needed intelligibility to the system, we can use the data provided by the clients to map all the possible interactions (with their corresponding modalities) at a certain moment in time and provide it to the operator. The available interactions will vary, depending on the state and content of the application (e.g., a thumbs up gesture will signal a positive feedback to provided assistance, but might not have any effect when the operator is reading a manual). 
 Additionally, after an interaction is handled, the IEO also provides information about what just happened (and by which device) so the operator can learn about the system and diagnose any unexpected results. In future work, this information could then be used to adapt and fine-tune the system's response for future events.
 
